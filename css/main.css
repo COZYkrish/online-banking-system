@@ -1,18 +1,18 @@
-:root {
-  --primary: #0A2540;
-  --accent: #635BFF;
-  --bg: #F5F7FA;
-  --text: #1a1a1a;
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.5rem 3rem;
+  background: var(--primary);
+  color: white;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
+.hero {
+  height: 80vh;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
 }
