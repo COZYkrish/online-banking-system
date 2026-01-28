@@ -1,44 +1,44 @@
 # 🏦 Online Banking System
-### Full-Stack | Secure | Multi-Page Banking Web Application
 
-The **Online Banking System** is a full-stack, enterprise-style web application that simulates real-world banking operations.  
-It is designed with a **clean frontend–backend separation**, secure authentication, role-based access, and dashboard-driven user experience.
+A **full-stack, secure, and dashboard-driven Online Banking System** designed to simulate real-world banking operations.  
+This project follows **industry-standard architecture**, clean frontend–backend separation, and professional development practices.
 
-This project demonstrates **professional system design**, scalable architecture, and consistent GitHub development practices.
+It is suitable for **final-year projects, portfolios, and job applications**.
 
 ---
 
 ## 🎯 Project Objective
 
-To design and develop a **secure, scalable, and visually attractive online banking platform** that includes:
-- User and Admin dashboards
-- Secure authentication & authorization
-- Fund transfer and transaction tracking
-- Clean, modular frontend and backend architecture
-- Industry-standard project structure
+The goal of this project is to design and implement a **scalable, secure, and visually attractive online banking platform** that demonstrates:
+
+- Full-stack web development skills  
+- Secure authentication & authorization  
+- Dashboard-based user experience  
+- Clean and modular project structure  
+- Real-world banking workflows  
 
 ---
 
 ## ✨ Core Features
 
 ### 👤 User Module
-- User registration and login
-- Secure authentication using JWT
-- User dashboard with account overview
-- Animated balance and dashboard cards
-- Fund transfer between accounts
-- Transaction history (credit/debit)
-- Profile management
-- Fully responsive UI
+- User registration and login  
+- Secure authentication using JWT  
+- User dashboard with account overview  
+- Animated balance and dashboard cards  
+- Fund transfer between accounts  
+- Transaction history (credit/debit)  
+- Profile management  
+- Fully responsive design  
 
 ---
 
 ### 🧑‍💻 Admin Module
-- Admin login with role-based access
-- Admin dashboard with system statistics
-- User account approval and blocking
-- Transaction monitoring
-- User management controls
+- Admin login with role-based access  
+- Admin dashboard with system statistics  
+- User account approval and blocking  
+- Transaction monitoring  
+- User management controls  
 
 ---
 
@@ -54,16 +54,84 @@ To design and develop a **secure, scalable, and visually attractive online banki
 - Spring Boot  
 - RESTful APIs  
 - JWT Authentication  
-- Role-Based Authorization
+- Role-Based Authorization  
 
 ### Database
-- MySQL
+- MySQL  
 
-### Tools & Platforms
+### Tools
 - Git & GitHub  
 - Visual Studio Code  
 - PowerShell  
 - Postman  
+
+---
+
+## 🔐 Security Features
+- Password encryption  
+- JWT-based authentication  
+- Role-based authorization (USER / ADMIN)  
+- Secure API endpoints  
+- Input validation and exception handling  
+
+---
+
+## 🎨 UI & UX Highlights
+- Modern banking-style interface  
+- Dashboard-centric navigation  
+- Smooth animations & micro-interactions  
+- Modular CSS and JavaScript  
+- Mobile-first responsive design  
+- Clean and consistent theme system  
+
+---
+
+## 🧪 Testing & Validation
+- REST API testing using Postman  
+- Frontend form validation  
+- Error handling and edge-case checks  
+
+---
+
+## 📈 Development Workflow
+- Feature-based development  
+- Modular and scalable architecture  
+- 7–10 meaningful commits per day  
+- Clean and descriptive commit messages  
+- GitHub-friendly project structure  
+
+---
+
+## 🔮 Future Enhancements
+- OTP & Two-Factor Authentication  
+- Email & SMS notifications  
+- PDF bank statement generation  
+- Fraud detection system  
+- Mobile banking application  
+- Cloud deployment (AWS / Azure)  
+
+---
+
+## 📸 Screenshots
+Screenshots of the landing page, dashboards, fund transfer, and admin panel will be added in the  
+`/docs/screenshots` directory.
+
+---
+
+## 🤝 Contributing
+Contributions, issues, and feature requests are welcome.  
+Feel free to fork this repository and submit pull requests.
+
+---
+
+## ⭐ Support
+If you find this project useful or inspiring, consider giving it a ⭐ on GitHub.
+
+---
+
+## 👤 Author
+**Krish Sharma**  
+Full-Stack Developer | Java | Web Technologies  
 
 ---
 
@@ -122,83 +190,3 @@ online-banking-system/
 │       ├── images/
 │       ├── icons/
 │       └── fonts/
-🔐 Security Features
-Password encryption
-
-JWT-based authentication
-
-Role-based authorization (USER / ADMIN)
-
-Secure API endpoints
-
-Input validation and exception handling
-
-🎨 UI & UX Highlights
-Modern banking-style interface
-
-Dashboard-centric navigation
-
-Smooth animations & micro-interactions
-
-Modular CSS and JavaScript
-
-Mobile-first responsive design
-
-Clean and consistent theme system
-
-🧪 Testing & Validation
-REST API testing using Postman
-
-Frontend form validation
-
-Error handling and edge-case checks
-
-📈 Development Workflow
-Feature-based development
-
-Modular and scalable architecture
-
-7–10 meaningful commits per day
-
-Clean commit messages
-
-GitHub-friendly structure
-
-🔮 Future Enhancements
-OTP & Two-Factor Authentication
-
-Email & SMS notifications
-
-PDF bank statement generation
-
-Fraud detection system
-
-Mobile banking application
-
-Cloud deployment (AWS / Azure)
-
-📸 Screenshots
-Screenshots of the landing page, dashboards, fund transfer, and admin panel will be added in a /docs/screenshots directory.
-
-🤝 Contributing
-Contributions, issues, and feature requests are welcome.
-Feel free to fork this repository and submit pull requests.
-
-⭐ Support
-If you find this project useful or inspiring, consider giving it a ⭐ on GitHub.
-
-👤 Author
-Krish Sharma
-Full-Stack Developer | Java | Web Technologies
-
-
----
-
-## ✅ NEXT STEP (DO THIS NOW)
-
-After pasting the README:
-
-```powershell
-git add README.md
-git commit -m "docs: add final project README with full architecture"
-git push
