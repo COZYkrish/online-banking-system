@@ -34,3 +34,19 @@
     transform: translateY(0);
   }
 }
+.stats {
+  display: flex;
+  justify-content: space-around;
+  padding: 60px 10%;
+  background: #f5f7fa;
+}
+
+.stat h2 {
+  font-size: 2.5rem;
+  color: #2c5364;
+}
+
+.stat p {
+  margin-top: 8px;
+  color: #555;
+}
