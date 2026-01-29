@@ -83,3 +83,24 @@
   opacity: 1;
   transform: translateY(0);
 }
+.btn {
+  padding: 12px 25px;
+  border-radius: 30px;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #00c6ff;
+  color: #fff;
+}
+
+.primary:hover {
+  box-shadow: 0 0 20px #00c6ff;
+}
+
+.secondary {
+  border: 2px solid #fff;
+  color: #fff;
+}

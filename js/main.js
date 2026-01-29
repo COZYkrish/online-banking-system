@@ -26,7 +26,6 @@ window.addEventListener("scroll", () => {
     started = true;
   }
 });
-// SCROLL REVEAL
 const reveals = document.querySelectorAll(".reveal");
 
 const revealOnScroll = () => {
