@@ -1,18 +1,36 @@
-.navbar {
+/* HERO SECTION */
+.hero {
+  height: 90vh;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
   display: flex;
-  justify-content: space-between;
-  padding: 1.5rem 3rem;
-  background: var(--primary);
-  color: white;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
 }
 
-.hero {
-  height: 80vh;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  text-align: center;
+.hero-content {
+  max-width: 700px;
+  animation: fadeUp 1.2s ease;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
