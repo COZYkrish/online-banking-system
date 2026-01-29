@@ -138,3 +138,36 @@
     gap: 30px;
   }
 }
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;   /* 🔥 IMPORTANT */
+  padding: 15px 60px;
+  background: #ffffff;
+}
+
+.navbar h2 {
+  margin: 0;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+/* Register button */
+.navbar .btn {
+  padding: 10px 22px;
+  border-radius: 25px;
+  background: #00c6ff;
+  color: #fff;
+  border: none;
+}
