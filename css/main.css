@@ -122,3 +122,9 @@
   border-radius: 12px;
   box-shadow: 0 8px 20px rgba(0,0,0,0.08);
 }
+.footer {
+  padding: 20px;
+  background: #203a43;
+  color: #fff;
+  text-align: center;
+}
