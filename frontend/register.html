@@ -3,15 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecureBank</title>
-  <link rel="stylesheet" href="css/main.css">
+  <title>Register | SecureBank</title>
+
+  <link rel="stylesheet" href="../css/auth.css">
 </head>
 <body>
 
-  <div id="app">
-    <!-- Content goes here -->
+  <div class="auth-container">
+    <form class="auth-card">
+      <h2>Create Account</h2>
+
+      <div class="input-group">
+        <input type="text" required>
+        <label>Full Name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="email" required>
+        <label>Email</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="registerPassword" required>
+        <label>Password</label>
+        <span class="toggle" onclick="togglePassword('registerPassword')">👁</span>
+      </div>
+
+      <button class="btn">Register</button>
+
+      <p class="switch">
+        Already have an account? <a href="login.html">Login</a>
+      </p>
+    </form>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="../js/auth.js"></script>
 </body>
 </html>
