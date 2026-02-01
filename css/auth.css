@@ -52,11 +52,13 @@ body {
 
 .input-group input {
   width: 100%;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 16px 12px;   
+  border-radius: 10px;
   border: 1px solid #ccc;
   outline: none;
+  background: #eef4ff;
 }
+
 
 .input-group label {
   position: absolute;
@@ -115,4 +117,12 @@ body {
   .auth-card {
     padding: 25px;
   }
+}
+.toggle {
+  color: #555;
+  transition: 0.3s;
+}
+
+.toggle:hover {
+  color: #00c6ff;
 }
