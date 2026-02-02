@@ -1,20 +1,26 @@
+function togglePassword(id) {
+  const input = document.getElementById(id);
+  input.type = input.type === "password" ? "text" : "password";
+}
+
 document.querySelector("form")?.addEventListener("submit", async (e) => {
   e.preventDefault();
 
   const card = document.querySelector(".auth-card");
   card.classList.add("shake");
+  setTimeout(() => card.classList.remove("shake"), 300);
 
-  setTimeout(() => {
-    card.classList.remove("shake");
-  }, 300);
-
-  // 👇 collect form data
   const name = document.getElementById("name")?.value;
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+  const email = document.getElementById("email")?.value;
+  const password = document.getElementById("password")?.value;
 
-  // 👇 choose API based on page
+  if (!email || !password || (document.getElementById("name") && !name)) {
+    alert("All fields are required");
+    return;
+  }
+
   const isRegisterPage = window.location.pathname.includes("register");
+
   const url = isRegisterPage
     ? "http://localhost:5000/api/auth/register"
     : "http://localhost:5000/api/auth/login";
@@ -33,20 +39,18 @@ document.querySelector("form")?.addEventListener("submit", async (e) => {
     const data = await res.json();
 
     if (!res.ok) {
-      alert(data.message);
+      alert(data.message || "Something went wrong");
       return;
     }
 
-    // 👇 success handling
-    if (!isRegisterPage) {
-      localStorage.setItem("token", data.token);
-      window.location.href = "dashboard.html";
-    } else {
+    if (isRegisterPage) {
       alert("Registered successfully");
       window.location.href = "login.html";
+    } else {
+      localStorage.setItem("token", data.token);
+      window.location.href = "dashboard.html";
     }
-
   } catch (err) {
-    alert("Server not responding");
+    alert("Backend not reachable");
   }
 });

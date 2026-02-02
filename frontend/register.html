@@ -14,26 +14,26 @@
       <h2>Create Account</h2>
 
       <div class="input-group">
-        <input type="text" required>
+        <input type="text" id="name" required>
         <label>Full Name</label>
       </div>
 
       <div class="input-group">
-        <input type="email" required>
+        <input type="email" id="email" required>
         <label>Email</label>
       </div>
 
       <div class="input-group">
-        <input type="password" id="registerPassword" required>
+        <input type="password" id="password" required>
         <label>Password</label>
-        <span class="toggle" onclick="togglePassword('registerPassword')">👁</span>
+        <span class="toggle" onclick="togglePassword('password')">👁</span>
       </div>
+
       <small class="hint">
-  Password must be at least 6 characters
-</small>
+        Password must be at least 6 characters
+      </small>
 
-
-      <button class="btn">Register</button>
+      <button type="submit" class="btn">Register</button>
 
       <p class="switch">
         Already have an account? <a href="login.html">Login</a>
