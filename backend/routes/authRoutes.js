@@ -51,7 +51,6 @@ router.post("/login", async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    // 🔒 Validation
     if (!email || !password) {
       return res.status(400).json({ message: "Email and password required" });
     }
@@ -66,19 +65,16 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    // 🎟️ JWT with ROLE
     const token = jwt.sign(
       { id: user._id, role: user.role },
       "SECRET_KEY",
       { expiresIn: "1d" }
     );
 
-    res.json({
-      token,
-      role: user.role
-    });
-
+    res.json({ token, role: user.role });
   } catch (err) {
     res.status(500).json({ message: "Login failed" });
   }
 });
+
+module.exports = router;

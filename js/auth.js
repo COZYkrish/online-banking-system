@@ -22,9 +22,8 @@ document.querySelector("form")?.addEventListener("submit", async (e) => {
   const isRegisterPage = window.location.pathname.includes("register");
 
   const url = isRegisterPage
-    ? "http://localhost:5000/api/auth/register"
-    : "http://localhost:5000/api/auth/login";
-
+    ? "http://127.0.0.1:5000/api/auth/register"
+    : "http://127.0.0.1:5000/api/auth/login";
   const body = isRegisterPage
     ? { name, email, password }
     : { email, password };

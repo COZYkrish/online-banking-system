@@ -16,18 +16,17 @@
       <p>Please login to your account</p>
 
       <div class="input-group">
-        <input type="email" required>
+        <input type="email" id="email" required>
         <label>Email</label>
       </div>
 
       <div class="input-group">
-  <input type="password" id="loginPassword" required>
-  <label>Password</label>
-  <span class="toggle" onclick="togglePassword('loginPassword')">👁</span>
-</div>
+        <input type="password" id="password" required>
+        <label>Password</label>
+        <span class="toggle" onclick="togglePassword('password')">👁</span>
+      </div>
 
-
-      <button class="btn">Login</button>
+      <button type="submit" class="btn">Login</button>
 
       <p class="switch">
         Don’t have an account? <a href="register.html">Register</a>
