@@ -1,17 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecureBank</title>
-  <link rel="stylesheet" href="css/main.css">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
 </head>
 <body>
 
-  <div id="app">
-    <!-- Content goes here -->
+<nav>
+  <h2>MyBank</h2>
+  <button onclick="logout()">Logout</button>
+</nav>
+
+<div class="container">
+  <h3 id="userName">Welcome</h3>
+
+  <div class="card">
+    <p>Account Number: <span id="accNumber"></span></p>
+    <p>Balance: ₹<span id="balance"></span></p>
   </div>
 
-  <script src="js/main.js"></script>
+  <h4>Recent Transactions</h4>
+  <ul id="transactions"></ul>
+</div>
+
+<script src="dashboard.js"></script>
 </body>
 </html>
