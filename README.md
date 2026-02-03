@@ -133,3 +133,6 @@ online-banking-system/
 ├── .gitignore
 ├── README.md
 └── .env
+
+👨‍💻 Author
+Krish Sharma
