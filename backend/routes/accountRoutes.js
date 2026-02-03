@@ -7,19 +7,39 @@ const router = express.Router();
 
 // Get logged-in user's account
 router.get("/me", auth, async (req, res) => {
-  const account = await Account.findOne({ userId: req.userId });
-  res.json(account);
+  try {
+    const account = await Account.findOne({ userId: req.user.id });
+
+    if (!account) {
+      return res.status(404).json({ message: "Account not found" });
+    }
+
+    res.json({
+      accountNumber: account.accountNumber,
+      balance: account.balance
+    });
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 // Get recent transactions
 router.get("/transactions/recent", auth, async (req, res) => {
-  const account = await Account.findOne({ userId: req.userId });
+  try {
+    const account = await Account.findOne({ userId: req.user.id });
 
-  const transactions = await Transaction.find({ accountId: account._id })
-    .sort({ createdAt: -1 })
-    .limit(5);
+    if (!account) {
+      return res.status(404).json({ message: "Account not found" });
+    }
 
-  res.json(transactions);
+    const transactions = await Transaction.find({ accountId: account._id })
+      .sort({ createdAt: -1 })
+      .limit(5);
+
+    res.json(transactions);
+  } catch (err) {
+    res.status(500).json({ message: "Server error" });
+  }
 });
 
 module.exports = router;
