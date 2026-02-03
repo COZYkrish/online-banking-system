@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>User Dashboard</title>
-  <link rel="stylesheet" href="dashboard.css">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
 
-<nav>
-  <h2>MyBank</h2>
+  <h1>MyBank</h1>
   <button onclick="logout()">Logout</button>
-</nav>
 
-<div class="container">
-  <h3 id="userName">Welcome</h3>
+  <h3>Welcome</h3>
 
-  <div class="card">
-    <p>Account Number: <span id="accNumber"></span></p>
-    <p>Balance: ₹<span id="balance"></span></p>
-  </div>
+  <p>
+    Account Number:
+    <span id="accNumber"></span>
+  </p>
 
-  <h4>Recent Transactions</h4>
+  <p>
+    Balance:
+    <span id="balance"></span>
+  </p>
+
+  <h3>Recent Transactions</h3>
   <ul id="transactions"></ul>
-</div>
-<script src="dashboard.js"></script>
+
+  <script src="../js/dashboard.js"></script>
 </body>
 </html>
