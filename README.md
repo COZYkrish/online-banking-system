@@ -1,164 +1,112 @@
 # 🏦 Online Banking System
 
-A **full-stack, secure, and dashboard-driven Online Banking System** designed to simulate real-world banking operations.  
-This project follows **industry-standard architecture**, clean frontend–backend separation, and professional development practices.
-
-It is suitable for **final-year projects, portfolios, and job applications**.
+A full-stack **Online Banking System** built using **HTML, CSS, JavaScript, Node.js, Express, and MongoDB**.  
+This project demonstrates real-world banking features such as **authentication, account management, and secure data handling**.
 
 ---
 
-## 🎯 Project Objective
+## ✨ Features
 
-The goal of this project is to design and implement a **scalable, secure, and visually attractive online banking platform** that demonstrates:
+### 🔐 Authentication & Security
+- User Registration & Login
+- Password hashing using **bcrypt**
+- JWT-based authentication
+- Protected routes with middleware
+- Secure logout
 
-- Full-stack web development skills  
-- Secure authentication & authorization  
-- Dashboard-based user experience  
-- Clean and modular project structure  
-- Real-world banking workflows  
+### 🧾 Account Management
+- Automatic account creation on registration
+- Unique account number generation
+- Initial balance credit (₹1000)
+- Secure account details API
 
----
+### 📊 User Dashboard
+- Displays account number
+- Shows real-time balance
+- Protected dashboard (JWT required)
+- Logout functionality
 
-## ✨ Core Features
-
-### 👤 User Module
-- User registration and login  
-- Secure authentication using JWT  
-- User dashboard with account overview  
-- Animated balance and dashboard cards  
-- Fund transfer between accounts  
-- Transaction history (credit/debit)  
-- Profile management  
-- Fully responsive design  
-
----
-
-### 🧑‍💻 Admin Module
-- Admin login with role-based access  
-- Admin dashboard with system statistics  
-- User account approval and blocking  
-- Transaction monitoring  
-- User management controls  
+### 🛠 Backend Architecture
+- RESTful APIs
+- MVC-style folder structure
+- MongoDB with Mongoose ODM
+- Express middleware for authorization
 
 ---
 
-## 🛠️ Tech Stack
+## 🧰 Tech Stack
 
 ### Frontend
-- HTML5  
-- CSS3 (Flexbox, Grid, Animations)  
-- JavaScript (DOM manipulation & logic)
+- HTML5
+- CSS3
+- Vanilla JavaScript
 
 ### Backend
-- Java  
-- Spring Boot  
-- RESTful APIs  
-- JWT Authentication  
-- Role-Based Authorization  
-
-### Database
-- MySQL  
-
-### Tools
-- Git & GitHub  
-- Visual Studio Code  
-- PowerShell  
-- Postman  
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT
+- bcrypt
 
 ---
 
-## 🔐 Security Features
-- Password encryption  
-- JWT-based authentication  
-- Role-based authorization (USER / ADMIN)  
-- Secure API endpoints  
-- Input validation and exception handling  
+## 🚀 How to Run the Project
 
----
+### 1️⃣ Clone the Repository
+```bash
+git clone https://github.com/your-username/online-banking-system.git
+cd online-banking-system
+2️⃣ Install Backend Dependencies
+cd backend
+npm install
+3️⃣ Start MongoDB
+Make sure MongoDB is running on:
 
-## 🎨 UI & UX Highlights
-- Modern banking-style interface  
-- Dashboard-centric navigation  
-- Smooth animations & micro-interactions  
-- Modular CSS and JavaScript  
-- Mobile-first responsive design  
-- Clean and consistent theme system  
+mongodb://127.0.0.1:27017
+4️⃣ Start Backend Server
+node server.js
+Server will run on:
 
----
+http://127.0.0.1:5000
+5️⃣ Run Frontend
+Open frontend/index.html
+or use Live Server in VS Code.
 
-## 🧪 Testing & Validation
-- REST API testing using Postman  
-- Frontend form validation  
-- Error handling and edge-case checks  
+🔐 Environment Variables
+Create a .env file in the backend folder:
 
----
-
-## 📈 Development Workflow
-- Feature-based development  
-- Modular and scalable architecture  
-- 7–10 meaningful commits per day  
-- Clean and descriptive commit messages  
-- GitHub-friendly project structure  
-
----
-
-## 🔮 Future Enhancements
-- OTP & Two-Factor Authentication  
-- Email & SMS notifications  
-- PDF bank statement generation  
-- Fraud detection system  
-- Mobile banking application  
-- Cloud deployment (AWS / Azure)  
-
----
-
-## 📸 Screenshots
-Screenshots of the landing page, dashboards, fund transfer, and admin panel will be added in the  
-`/docs/screenshots` directory.
-
----
-
-## 🤝 Contributing
-Contributions, issues, and feature requests are welcome.  
-Feel free to fork this repository and submit pull requests.
-
----
-
-## ⭐ Support
-If you find this project useful or inspiring, consider giving it a ⭐ on GitHub.
-
----
-
-## 👤 Author
-**Krish Sharma**  
-Full-Stack Developer | Java | Web Technologies  
-
----
-
-## 📁 Final Project Structure
-
-```text
+PORT=5000
+MONGO_URI=mongodb://127.0.0.1:27017/banking
+JWT_SECRET=your_secret_key
+🧪 API Endpoints (Sample)
+Method	Endpoint	Description
+POST	/api/auth/register	Register user
+POST	/api/auth/login	Login user
+GET	/api/account/me	Get account details
+GET	/api/account/transactions/recent	Get recent transactions
+📁 Final Project Structure
 online-banking-system/
-├── README.md
-├── .gitignore
-├── database/
-│   └── banking_db.sql
+│
 ├── backend/
-│   ├── pom.xml
-│   └── src/
-│       └── main/
-│           ├── java/
-│           │   └── com/securebank/
-│           │       ├── OnlineBankingApplication.java
-│           │       ├── controller/
-│           │       ├── service/
-│           │       ├── repository/
-│           │       ├── model/
-│           │       ├── dto/
-│           │       ├── security/
-│           │       └── exception/
-│           └── resources/
-│               └── application.properties
+│   ├── middleware/
+│   │   └── authMiddleware.js
+│   │
+│   ├── models/
+│   │   ├── User.js
+│   │   ├── Account.js
+│   │   └── Transaction.js
+│   │
+│   ├── routes/
+│   │   ├── authRoutes.js
+│   │   ├── accountRoutes.js
+│   │   ├── transactionRoutes.js
+│   │   └── adminRoutes.js
+│   │
+│   ├── server.js
+│   ├── package.json
+│   └── package-lock.json
+│
 ├── frontend/
 │   ├── index.html
 │   ├── login.html
@@ -166,27 +114,22 @@ online-banking-system/
 │   ├── dashboard.html
 │   ├── transfer.html
 │   ├── transactions.html
-│   ├── profile.html
-│   ├── admin/
-│   │   ├── admin-dashboard.html
-│   │   ├── manage-users.html
-│   │   └── admin-transactions.html
-│   ├── css/
-│   │   ├── main.css
-│   │   ├── auth.css
-│   │   ├── dashboard.css
-│   │   ├── transfer.css
-│   │   ├── admin.css
-│   │   └── animations.css
-│   ├── js/
-│   │   ├── main.js
-│   │   ├── auth.js
-│   │   ├── dashboard.js
-│   │   ├── transfer.js
-│   │   ├── transactions.js
-│   │   ├── profile.js
-│   │   └── admin.js
-│   └── assets/
-│       ├── images/
-│       ├── icons/
-│       └── fonts/
+│   └── admin.html
+│
+├── css/
+│   ├── main.css
+│   ├── auth.css
+│   ├── dashboard.css
+│   ├── transfer.css
+│   └── admin.css
+│
+├── js/
+│   ├── auth.js
+│   ├── dashboard.js
+│   ├── transfer.js
+│   ├── transactions.js
+│   └── admin.js
+│
+├── .gitignore
+├── README.md
+└── .env
