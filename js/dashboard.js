@@ -5,36 +5,52 @@ if (!token) {
 }
 
 async function loadDashboard() {
-  const accRes = await fetch("http://localhost:5000/api/account/me", {
-    headers: {
-      Authorization: `Bearer ${token}`
-    }
-  });
-  const account = await accRes.json();
-
-  document.getElementById("accNumber").innerText = account.accountNumber;
-  document.getElementById("balance").innerText = account.balance;
-
-  const txRes = await fetch(
-    "http://localhost:5000/api/account/transactions/recent",
-    {
+  try {
+    const accRes = await fetch("http://127.0.0.1:5000/api/account/me", {
       headers: {
         Authorization: `Bearer ${token}`
       }
+    });
+
+    if (accRes.status === 401) {
+      localStorage.removeItem("token");
+      window.location.href = "login.html";
+      return;
     }
-  );
-  const transactions = await txRes.json();
 
-  const list = document.getElementById("transactions");
-  list.innerHTML = "";
+    const account = await accRes.json();
 
-  transactions.forEach(tx => {
-    const li = document.createElement("li");
-    li.innerText = `${tx.type} ₹${tx.amount}`;
-    list.appendChild(li);
-  });
+    document.getElementById("accNumber").innerText = account.accountNumber;
+    document.getElementById("balance").innerText = "₹ " + account.balance;
+
+    const txRes = await fetch(
+      "http://127.0.0.1:5000/api/account/transactions/recent",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
+    if (txRes.ok) {
+      const transactions = await txRes.json();
+      const list = document.getElementById("transactions");
+
+      if (list) {
+        list.innerHTML = "";
+
+        transactions.forEach(tx => {
+          const li = document.createElement("li");
+          li.innerText = `${tx.type} ₹${tx.amount}`;
+          list.appendChild(li);
+        });
+      }
+    }
+
+  } catch (err) {
+    alert("Failed to load dashboard");
+  }
 }
-
 function logout() {
   localStorage.removeItem("token");
   window.location.href = "login.html";
