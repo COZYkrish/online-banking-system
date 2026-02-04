@@ -28,7 +28,19 @@ router.post("/register", async (req, res) => {
     // 🔐 Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const accountNumber = "AC" + Date.now();
+    const generateAccountNumber = () => {
+      const rand = Math.floor(Math.random() * 1000)
+        .toString()
+        .padStart(3, "0");
+      return `AC${Date.now()}${rand}`;
+    };
+
+    let accountNumber = generateAccountNumber();
+    for (let i = 0; i < 3; i += 1) {
+      const exists = await Account.findOne({ accountNumber });
+      if (!exists) break;
+      accountNumber = generateAccountNumber();
+    }
 
     const user = await User.create({
       name,
