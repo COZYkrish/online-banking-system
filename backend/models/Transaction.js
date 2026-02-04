@@ -1,17 +1,26 @@
 const mongoose = require("mongoose");
 
-const transactionSchema = new mongoose.Schema({
-  accountId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "Account"
+const transactionSchema = new mongoose.Schema(
+  {
+    senderAccount: {
+      type: String,
+      required: true,
+    },
+    receiverAccount: {
+      type: String,
+      required: true,
+    },
+    amount: {
+      type: Number,
+      required: true,
+    },
+    type: {
+      type: String,
+      enum: ["DEBIT", "CREDIT"],
+      required: true,
+    },
   },
-  type: String, 
-  amount: Number,
-  description: String,
-  createdAt: {
-    type: Date,
-    default: Date.now
-  }
-});
+  { timestamps: true }
+);
 
 module.exports = mongoose.model("Transaction", transactionSchema);
