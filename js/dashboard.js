@@ -19,6 +19,7 @@ async function loadDashboard() {
     }
 
     const account = await accRes.json();
+    const currentAccountNumber = account.accountNumber;
 
     document.getElementById("accNumber").innerText = account.accountNumber;
     document.getElementById("balance").innerText = "₹ " + account.balance;
@@ -40,8 +41,10 @@ async function loadDashboard() {
         list.innerHTML = "";
 
         transactions.forEach(tx => {
+          const type =
+            tx.senderAccount === currentAccountNumber ? "DEBIT" : "CREDIT";
           const li = document.createElement("li");
-          li.innerText = `${tx.type} ₹${tx.amount}`;
+          li.innerText = `${type} Rs ${tx.amount}`;
           list.appendChild(li);
         });
       }
