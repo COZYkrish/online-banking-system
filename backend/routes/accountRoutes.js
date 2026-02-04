@@ -16,14 +16,14 @@ router.get("/me", auth, async (req, res) => {
 
     res.json({
       accountNumber: account.accountNumber,
-      balance: account.balance
+      balance: account.balance,
     });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
   }
 });
 
-// Get recent transactions
+// Get recent transactions (FIXED)
 router.get("/transactions/recent", auth, async (req, res) => {
   try {
     const account = await Account.findOne({ userId: req.user.id });
@@ -32,7 +32,12 @@ router.get("/transactions/recent", auth, async (req, res) => {
       return res.status(404).json({ message: "Account not found" });
     }
 
-    const transactions = await Transaction.find({ accountId: account._id })
+    const transactions = await Transaction.find({
+      $or: [
+        { senderAccount: account.accountNumber },
+        { receiverAccount: account.accountNumber },
+      ],
+    })
       .sort({ createdAt: -1 })
       .limit(5);
 
