@@ -19,10 +19,8 @@ async function loadDashboard() {
     }
 
     const account = await accRes.json();
-    const currentAccountNumber = account.accountNumber;
-
     document.getElementById("accNumber").innerText = account.accountNumber;
-    document.getElementById("balance").innerText = "₹ " + account.balance;
+    document.getElementById("balance").innerText = "Rs " + account.balance;
 
     const txRes = await fetch(
       "http://127.0.0.1:5000/api/account/transactions/recent",
@@ -41,10 +39,8 @@ async function loadDashboard() {
         list.innerHTML = "";
 
         transactions.forEach(tx => {
-          const type =
-            tx.senderAccount === currentAccountNumber ? "DEBIT" : "CREDIT";
           const li = document.createElement("li");
-          li.innerText = `${type} Rs ${tx.amount}`;
+          li.innerText = `${tx.type} Rs ${tx.amount}`;
           list.appendChild(li);
         });
       }

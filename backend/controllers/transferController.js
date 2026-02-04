@@ -28,6 +28,10 @@ const transferMoney = async (req, res) => {
       return res.status(404).json({ message: "Receiver not found" });
     }
 
+    if (sender.accountNumber === receiver.accountNumber) {
+      return res.status(400).json({ message: "Cannot transfer to same account" });
+    }
+
     if (sender.balance < transferAmount) {
       return res.status(400).json({ message: "Insufficient balance" });
     }
