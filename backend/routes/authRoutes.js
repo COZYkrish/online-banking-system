@@ -28,16 +28,20 @@ router.post("/register", async (req, res) => {
     // 🔐 Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const accountNumber = "AC" + Date.now();
+
     const user = await User.create({
       name,
       email,
-      password: hashedPassword
+      password: hashedPassword,
+      accountNumber,
+      balance: 1000
     });
 
     // 🏦 Auto account creation
     await Account.create({
       userId: user._id,
-      accountNumber: "AC" + Date.now(),
+      accountNumber,
       balance: 1000
     });
 
