@@ -1,17 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecureBank</title>
-  <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8" />
+  <title>Transactions</title>
 </head>
 <body>
 
-  <div id="app">
-    <!-- Content goes here -->
-  </div>
+  <h2>Recent Transactions</h2>
 
-  <script src="js/main.js"></script>
+  <table border="1" cellpadding="8">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Amount</th>
+        <th>From</th>
+        <th>To</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody id="transactionTable">
+      <tr>
+        <td colspan="5">Loading...</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <br />
+  <a href="dashboard.html">⬅ Back to Dashboard</a>
+
+  <script src="transactions.js"></script>
 </body>
 </html>

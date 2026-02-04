@@ -1,17 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SecureBank</title>
-  <link rel="stylesheet" href="css/main.css">
+  <meta charset="UTF-8" />
+  <title>Transfer Money</title>
 </head>
 <body>
 
-  <div id="app">
-    <!-- Content goes here -->
-  </div>
+  <h2>Transfer Money</h2>
 
-  <script src="js/main.js"></script>
+  <input
+    type="text"
+    id="receiverAccount"
+    placeholder="Receiver Account Number"
+  /><br /><br />
+
+  <input
+    type="number"
+    id="amount"
+    placeholder="Amount"
+  /><br /><br />
+
+  <button onclick="transferMoney()">Send Money</button>
+
+  <p id="message"></p>
+
+  <br />
+  <a href="dashboard.html">⬅ Back to Dashboard</a>
+
+  <script src="transfer.js"></script>
 </body>
 </html>
