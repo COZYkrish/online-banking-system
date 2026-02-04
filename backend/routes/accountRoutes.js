@@ -2,6 +2,7 @@ const express = require("express");
 const auth = require("../middleware/authMiddleware");
 const Account = require("../models/Account");
 const Transaction = require("../models/Transaction");
+const { transferMoney } = require("../controllers/transferController");
 
 const router = express.Router();
 
@@ -46,5 +47,8 @@ router.get("/transactions/recent", auth, async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 });
+
+// Transfer money
+router.post("/transfer", auth, transferMoney);
 
 module.exports = router;

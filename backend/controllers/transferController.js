@@ -1,28 +1,40 @@
-const User = require("../models/User");
+const Account = require("../models/Account");
 const Transaction = require("../models/Transaction");
 
 const transferMoney = async (req, res) => {
   try {
-    const { receiverAccount, amount } = req.body;
+    const { receiverAccountNumber, receiverAccount, amount } = req.body;
+    const targetAccountNumber = receiverAccountNumber || receiverAccount;
+    const transferAmount = Number(amount);
 
-    if (amount <= 0) {
+    if (!targetAccountNumber) {
+      return res.status(400).json({ message: "Receiver account required" });
+    }
+
+    if (!Number.isFinite(transferAmount) || transferAmount <= 0) {
       return res.status(400).json({ message: "Invalid amount" });
     }
 
-    const sender = await User.findById(req.user._id);
-    const receiver = await User.findOne({ accountNumber: receiverAccount });
+    const sender = await Account.findOne({ userId: req.user._id });
+    const receiver = await Account.findOne({
+      accountNumber: targetAccountNumber,
+    });
+
+    if (!sender) {
+      return res.status(404).json({ message: "Sender account not found" });
+    }
 
     if (!receiver) {
       return res.status(404).json({ message: "Receiver not found" });
     }
 
-    if (sender.balance < amount) {
+    if (sender.balance < transferAmount) {
       return res.status(400).json({ message: "Insufficient balance" });
     }
 
     // Update balances
-    sender.balance -= amount;
-    receiver.balance += amount;
+    sender.balance -= transferAmount;
+    receiver.balance += transferAmount;
 
     await sender.save();
     await receiver.save();
@@ -31,14 +43,14 @@ const transferMoney = async (req, res) => {
     await Transaction.create({
       senderAccount: sender.accountNumber,
       receiverAccount: receiver.accountNumber,
-      amount,
+      amount: transferAmount,
       type: "DEBIT",
     });
 
     await Transaction.create({
       senderAccount: sender.accountNumber,
       receiverAccount: receiver.accountNumber,
-      amount,
+      amount: transferAmount,
       type: "CREDIT",
     });
 
