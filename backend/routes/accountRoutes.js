@@ -42,7 +42,27 @@ router.get("/transactions/recent", auth, async (req, res) => {
       .sort({ createdAt: -1 })
       .limit(5);
 
-    res.json(transactions);
+    const normalized = transactions
+      .map((tx) => {
+        const typeForUser =
+          tx.senderAccount === account.accountNumber ? "DEBIT" : "CREDIT";
+        return {
+          _id: tx._id,
+          senderAccount: tx.senderAccount,
+          receiverAccount: tx.receiverAccount,
+          amount: tx.amount,
+          type: typeForUser,
+          createdAt: tx.createdAt,
+          originalType: tx.type,
+        };
+      })
+      .filter((tx) => {
+        if (tx.originalType === "TRANSFER") return true;
+        return tx.originalType === tx.type;
+      })
+      .map(({ originalType, ...tx }) => tx);
+
+    res.json(normalized);
   } catch (err) {
     res.status(500).json({ message: "Server error" });
   }

@@ -39,19 +39,12 @@ const transferMoney = async (req, res) => {
     await sender.save();
     await receiver.save();
 
-    // Save transactions
+    // Save a single transfer record
     await Transaction.create({
       senderAccount: sender.accountNumber,
       receiverAccount: receiver.accountNumber,
       amount: transferAmount,
-      type: "DEBIT",
-    });
-
-    await Transaction.create({
-      senderAccount: sender.accountNumber,
-      receiverAccount: receiver.accountNumber,
-      amount: transferAmount,
-      type: "CREDIT",
+      type: "TRANSFER",
     });
 
     res.status(200).json({
