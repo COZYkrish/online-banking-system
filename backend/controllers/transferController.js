@@ -44,20 +44,20 @@ const transferMoney = async (req, res) => {
     await receiver.save();
 
     // Save a single transfer record
-//     await Transaction.create({
-//       senderAccount: sender.accountNumber,
-//       receiverAccount: receiver.accountNumber,
-//       amount: transferAmount,
-//       type: "TRANSFER",
-//     });
+    await Transaction.create({
+      senderAccount: sender.accountNumber,
+      receiverAccount: receiver.accountNumber,
+      amount: transferAmount,
+      type: "TRANSFER",
+    });
 
-//     res.status(200).json({
-//       message: "Transfer successful",
-//       balance: sender.balance,
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: "Transfer failed" });
-//   }
-// };
+    res.status(200).json({
+      message: "Transfer successful",
+      balance: sender.balance,
+    });
+  } catch (error) {
+    res.status(500).json({ message: "Transfer failed" });
+  }
+};
 
-// module.exports = { transferMoney };
+module.exports = { transferMoney };
