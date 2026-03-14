@@ -24,9 +24,9 @@ const transferMoney = async (req, res) => {
       return res.status(404).json({ message: "Sender account not found" });
     }
 
-    // if (!receiver) {
-    //   return res.status(404).json({ message: "Receiver not found" });
-    // }
+    if (!receiver) {
+      return res.status(404).json({ message: "Receiver not found" });
+    }
 
     if (sender.accountNumber === receiver.accountNumber) {
       return res.status(400).json({ message: "Cannot transfer to same account" });
