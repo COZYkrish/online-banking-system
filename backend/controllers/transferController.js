@@ -32,9 +32,9 @@ const transferMoney = async (req, res) => {
     //   return res.status(400).json({ message: "Cannot transfer to same account" });
     // }
 
-    // if (sender.balance < transferAmount) {
-    //   return res.status(400).json({ message: "Insufficient balance" });
-    // }
+    if (sender.balance < transferAmount) {
+      return res.status(400).json({ message: "Insufficient balance" });
+    }
 
     // Update balances
     sender.balance -= transferAmount;
