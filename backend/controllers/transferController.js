@@ -20,9 +20,9 @@ const transferMoney = async (req, res) => {
       accountNumber: targetAccountNumber,
     });
 
-    // if (!sender) {
-    //   return res.status(404).json({ message: "Sender account not found" });
-    // }
+    if (!sender) {
+      return res.status(404).json({ message: "Sender account not found" });
+    }
 
     // if (!receiver) {
     //   return res.status(404).json({ message: "Receiver not found" });
