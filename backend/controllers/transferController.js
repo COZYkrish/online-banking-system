@@ -15,10 +15,10 @@ const transferMoney = async (req, res) => {
       return res.status(400).json({ message: "Invalid amount" });
     }
 
-    // const sender = await Account.findOne({ userId: req.user._id });
-    // const receiver = await Account.findOne({
-    //   accountNumber: targetAccountNumber,
-    // });
+    const sender = await Account.findOne({ userId: req.user._id });
+    const receiver = await Account.findOne({
+      accountNumber: targetAccountNumber,
+    });
 
     // if (!sender) {
     //   return res.status(404).json({ message: "Sender account not found" });
