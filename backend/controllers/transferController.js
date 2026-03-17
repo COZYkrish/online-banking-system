@@ -11,9 +11,9 @@ const transferMoney = async (req, res) => {
       return res.status(400).json({ message: "Receiver account required" });
     }
 
-    // if (!Number.isFinite(transferAmount) || transferAmount <= 0) {
-    //   return res.status(400).json({ message: "Invalid amount" });
-    // }
+    if (!Number.isFinite(transferAmount) || transferAmount <= 0) {
+      return res.status(400).json({ message: "Invalid amount" });
+    }
 
     // const sender = await Account.findOne({ userId: req.user._id });
     // const receiver = await Account.findOne({
