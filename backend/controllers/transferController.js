@@ -7,9 +7,9 @@ const transferMoney = async (req, res) => {
     const targetAccountNumber = receiverAccountNumber || receiverAccount;
     const transferAmount = Number(amount);
 
-    // if (!targetAccountNumber) {
-    //   return res.status(400).json({ message: "Receiver account required" });
-    // }
+    if (!targetAccountNumber) {
+      return res.status(400).json({ message: "Receiver account required" });
+    }
 
     // if (!Number.isFinite(transferAmount) || transferAmount <= 0) {
     //   return res.status(400).json({ message: "Invalid amount" });
